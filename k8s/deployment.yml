@@ -1,8 +1,25 @@
-env:
-  - name: CUSTOMER_CODE
-    value: "ABC123"
-  - name: CURRENT_VERSION
-    value: "1.0.0"
-  - name: TARGET_VERSION
-    value: "1.1.0"
-  
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  namespace: Automate
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      name: frontend-pod
+      namespace: Automate
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: chatapp-frontend
+        image: anu548/chatapp-frontend:latest
+        ports:
+        - containerPort: 80
+        env:
+         - name: NODE_ENV
+           value: production
