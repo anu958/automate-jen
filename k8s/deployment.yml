@@ -1,31 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-deployment
-  namespace: automate
+  name: my-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend
+      app: my-app
   template:
     metadata:
-      name: frontend-pod
-      namespace: automate
       labels:
-        app: frontend
+        app: my-app
     spec:
       containers:
-      - name: chatapp-frontend
-        image: anu548/chatapp-frontend:latest
-        ports:
-        - containerPort: 80
-        env:
-         - name: NODE_ENV
-           value: production
-         - name: CUSTOMER_CODE
-           value: "XYZ999"
-         - name: CURRENT_VERSION
-           value: "2.5"
-         - name: TARGET_VERSION
-           value: "2.5"
+        - name: my-container
+          image: nginx:latest   # you can change this later
+          ports:
+            - containerPort: 80
+          env:
+            - name: CUSTOMER_CODE
+              value: "ABC123"
+            - name: CURRENT_VERSION
+              value: "1.0.0"
+            - name: TARGET_VERSION
+              value: "1.0.0"
