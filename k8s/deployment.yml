@@ -1,0 +1,8 @@
+env:
+  - name: CUSTOMER_CODE
+    value: "ABC123"
+  - name: CURRENT_VERSION
+    value: "1.0.0"
+  - name: TARGET_VERSION
+    value: "1.1.0"
+  
