@@ -23,3 +23,9 @@ spec:
         env:
          - name: NODE_ENV
            value: production
+            - name: CUSTOMER_CODE
+              value: "XYZ999"
+            - name: CURRENT_VERSION
+              value: "2.5"
+            - name: TARGET_VERSION
+              value: "2.5"
